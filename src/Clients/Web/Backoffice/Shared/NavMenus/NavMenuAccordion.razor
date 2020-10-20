@@ -1,0 +1,12 @@
+﻿<div class="accordion-title @(_collapsed ? "" : "expanded") @(ChildNavActive ? "child-nav-active" : "")" @onclick="@Toggle">
+    <span>
+        @Title
+    </span>
+    <i class="material-icons-round">navigate_next</i>
+</div>
+@if (!_collapsed)
+{
+<div class="accordion-content">
+    @Content
+</div>
+}

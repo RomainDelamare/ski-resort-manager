@@ -1,0 +1,11 @@
+.vs/
+bin/
+obj/
+*.user
+artifacts/
+.vscode/
+.dotnet/
+*.binlog
+**/appsettings.development.json
+**/appsettings.staging.json
+**/appsettings.production.json

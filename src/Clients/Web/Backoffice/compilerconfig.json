@@ -1,0 +1,50 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "wwwroot/css/app.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/material.css",
+    "inputFile": "wwwroot/css/material.scss"
+  },
+  {
+    "outputFile": "Shared/Layouts/MainLayout.razor.css",
+    "inputFile": "Shared/Layouts/MainLayout.razor.scss"
+  },
+  {
+    "outputFile": "Modules/Installations/Pages/SkiLift.razor.css",
+    "inputFile": "Modules/Installations/Pages/SkiLift.razor.scss"
+  },
+  {
+    "outputFile": "Modules/Installations/Pages/SkiSlope.razor.css",
+    "inputFile": "Modules/Installations/Pages/SkiSlope.razor.scss"
+  },
+  {
+    "outputFile": "Modules/Dashboard/Pages/Dashboard.razor.css",
+    "inputFile": "Modules/Dashboard/Pages/Dashboard.razor.scss"
+  },
+  {
+    "outputFile": "Shared/NavMenu.razor.css",
+    "inputFile": "Shared/NavMenu.razor.scss"
+  },
+  {
+    "outputFile": "Shared/NavMenu/NavMenuAccordion.razor.css",
+    "inputFile": "Shared/NavMenu/NavMenuAccordion.razor.scss"
+  },
+  {
+    "outputFile": "Shared/NavMenus/NavMenuAccordion.razor.css",
+    "inputFile": "Shared/NavMenus/NavMenuAccordion.razor.scss"
+  },
+  {
+    "outputFile": "Shared/Buttons/MatIconButton.razor.css",
+    "inputFile": "Shared/Buttons/MatIconButton.razor.scss"
+  },
+  {
+    "outputFile": "Shared/Toolbars/MainToolbar.razor.css",
+    "inputFile": "Shared/Toolbars/MainToolbar.razor.scss"
+  },
+  {
+    "outputFile": "Shared/Toolbars/ActionToolbar.razor.css",
+    "inputFile": "Shared/Toolbars/ActionToolbar.razor.scss"
+  }
+]

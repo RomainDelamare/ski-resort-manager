@@ -1,0 +1,22 @@
+﻿@import "../../wwwroot/css/material.scss";
+
+button {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 50%;
+    cursor: pointer;
+
+    i {
+        transition: color 0.3s;
+    }
+
+    &:hover {
+        outline: none;
+
+        i {
+            color: $primary;
+        }
+    }
+}

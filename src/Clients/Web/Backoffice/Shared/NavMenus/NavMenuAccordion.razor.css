@@ -1,0 +1,11 @@
+﻿.accordion-title {
+  cursor: pointer; }
+
+.accordion-content {
+  animation: 1s ease-out 0s 1 expand; }
+
+@keyframes expand {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }

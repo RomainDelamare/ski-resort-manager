@@ -1,0 +1,32 @@
+﻿<nav>
+    <ul>
+        <li class="nav-link-wrapper">
+            <NavLink class="nav-link mat-list-item-dense" href="" Match="NavLinkMatch.All">
+                Dashboard
+            </NavLink>
+        </li>
+        <li>
+            <NavMenuAccordion Title="Installations" ChildNavActive="@baseRelativePath.StartsWith("installation")">
+                <Content>
+                    <ul>
+                        <li class="nav-link-wrapper">
+                            <NavLink class="nav-link mat-list-item-dense" href="installation/ski-lift" Match="NavLinkMatch.Prefix">
+                                Ski lift
+                            </NavLink>
+                        </li>
+                        <li class="nav-link-wrapper">
+                            <NavLink class="nav-link mat-list-item-dense" href="installation/ski-slope" Match="NavLinkMatch.Prefix">
+                                Ski slope
+                            </NavLink>
+                        </li>
+                    </ul>
+                </Content>
+            </NavMenuAccordion>
+        </li>
+        <li class="nav-link-wrapper">
+            <NavLink class="nav-link mat-list-item-dense" href="openings" Match="NavLinkMatch.Prefix">
+                Openings
+            </NavLink>
+        </li>
+    </ul>
+</nav>
