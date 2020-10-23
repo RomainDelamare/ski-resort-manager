@@ -58457,6 +58457,9 @@ body {
 body, .e-control, .e-css {
   font-family: 'Nunito', sans-serif !important; }
 
+.e-btn, .e-css.e-btn {
+  text-transform: none !important; }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 8px 0px; }
 
@@ -58472,6 +58475,16 @@ a {
   padding: 0 16px;
   position: relative;
   height: 64px; }
+
+.page-container {
+  padding: 0 16px; }
+
+form .e-float-input, form .e-float-input.e-control-wrapper {
+  margin-top: 25px !important; }
+
+form .validation-message {
+  font-size: 10px;
+  color: #f44336; }
 
 #blazor-error-ui {
   background: lightyellow;

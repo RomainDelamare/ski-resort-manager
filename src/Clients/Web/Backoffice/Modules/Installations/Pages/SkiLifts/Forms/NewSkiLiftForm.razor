@@ -1,0 +1,39 @@
+﻿@using SkiResortManager.Shared.Enums.Enums.Installations.SkiLifts;
+@using SkiResortManager.Shared.Utils.Enums;
+
+<EditForm id="@FormId" Model="_newSkiLift" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <SfDropDownList TValue="SkiLiftType" TItem="EnumWithFriendlyString<SkiLiftType>"
+                    Placeholder="Select a type" DataSource="@_skiLiftTypes"
+                    @bind-Value="@_newSkiLift.SkiLiftType" FloatLabelType="@FloatLabelType.Auto">
+        <DropDownListFieldSettings Text="FriendlyString" Value="EnumValue"></DropDownListFieldSettings>
+    </SfDropDownList>
+    <ValidationMessage For="@(() => _newSkiLift.SkiLiftType)" />
+
+    <SfTextBox Placeholder="Code" FloatLabelType="@FloatLabelType.Auto" @bind-Value="@_newSkiLift.Code"></SfTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.Code)" />
+
+    <SfTextBox Placeholder="Name" FloatLabelType="@FloatLabelType.Auto" @bind-Value="@_newSkiLift.Name"></SfTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.Name)" />
+
+    <SfNumericTextBox Placeholder="Speed in meter per second" @bind-Value="@_newSkiLift.Speed" Step=0.1m
+                      FloatLabelType="@FloatLabelType.Auto"></SfNumericTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.Speed)" />
+
+    <SfNumericTextBox Placeholder="Length in meter" @bind-Value="@_newSkiLift.Length" Step=10
+                      FloatLabelType="@FloatLabelType.Auto"></SfNumericTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.Length)" />
+
+    <SfNumericTextBox Placeholder="Start altitude in meter" @bind-Value="@_newSkiLift.StartAltitude" Step=10
+                      FloatLabelType="@FloatLabelType.Auto"></SfNumericTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.StartAltitude)" />
+
+    <SfNumericTextBox Placeholder="End altitude in meter" @bind-Value="@_newSkiLift.EndAltitude" Step=10
+                      FloatLabelType="@FloatLabelType.Auto"></SfNumericTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.EndAltitude)" />
+
+    <SfNumericTextBox Placeholder="Capacity in person per hour" @bind-Value="@_newSkiLift.CapacityPerHour" Step=10
+                      FloatLabelType="@FloatLabelType.Auto"></SfNumericTextBox>
+    <ValidationMessage For="@(() => _newSkiLift.CapacityPerHour)" />
+</EditForm>

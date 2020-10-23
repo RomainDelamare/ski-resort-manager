@@ -6,5 +6,10 @@
     </Title>
     <Actions>
         <SfButton CssClass="e-flat">Cancel</SfButton>
+        <SfButton CssClass="e-primary" type="submit" form="@FormId">Add new ski lift</SfButton>
     </Actions>
 </ActionToolbar>
+
+<div class="page-container">
+    <NewSkiLiftForm FormId="@FormId" />
+</div>

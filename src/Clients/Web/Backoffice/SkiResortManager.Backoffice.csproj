@@ -21,4 +21,10 @@
     <None Include="wwwroot\css\variables.scss" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\API\SkiResortManager.API.Shared\SkiResortManager.API.Shared.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Enums\SkiResortManager.Shared.Enums\SkiResortManager.Shared.Enums.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Utils\SkiResortManager.Shared.Utils\SkiResortManager.Shared.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

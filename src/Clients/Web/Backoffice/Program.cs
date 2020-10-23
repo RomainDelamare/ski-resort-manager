@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Syncfusion.Blazor;
 using System;
@@ -14,7 +15,11 @@ namespace SkiResortManager.Backoffice
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            var baseAddress = builder.Configuration.GetValue<string>("ApiBaseAddress");
+            builder.Services.AddScoped(sp => new HttpClient
+            {
+                BaseAddress = new Uri(baseAddress)
+            });
 
             builder.Services.AddSyncfusionBlazor();
 

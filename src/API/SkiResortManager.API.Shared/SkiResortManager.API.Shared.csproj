@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Enums\SkiResortManager.Shared.Enums\SkiResortManager.Shared.Enums.csproj" />
+  </ItemGroup>
+
+</Project>

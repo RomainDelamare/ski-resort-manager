@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Utils\SkiResortManager.Shared.Utils\SkiResortManager.Shared.Utils.csproj" />
+  </ItemGroup>
+
+</Project>
