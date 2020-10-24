@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SkiResortManager.Backoffice.Shared.NavMenus
+namespace SkiResortManager.Backoffice.Shared.Components.NavMenus
 {
     public partial class NavMenuAccordion
     {

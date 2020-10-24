@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
-namespace SkiResortManager.Backoffice.Shared.NavMenus
+namespace SkiResortManager.Backoffice.Shared.Components.NavMenus
 {
     public partial class NavMenu
     {
         [Inject]
         NavigationManager NavigationManager { get; init; }
 
-        private string baseRelativePath;
+        private string _baseRelativePath;
 
         protected override void OnInitialized()
         {
@@ -20,7 +20,7 @@ namespace SkiResortManager.Backoffice.Shared.NavMenus
 
         private void UpdatePaths()
         {
-            baseRelativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+            _baseRelativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
             StateHasChanged();
         }
     }

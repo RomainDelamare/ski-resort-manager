@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components;
-using SkiResortManager.API.Shared.Modules.Installations.SkiLifts;
-using SkiResortManager.API.Shared.Utils;
 using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Models;
 using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services;
+using SkiResortManager.Backoffice.Shared.Events;
 using SkiResortManager.Shared.Enums.Enums.Installations.SkiLifts;
 using SkiResortManager.Shared.Utils.Enums;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
@@ -17,6 +14,9 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
     {
         [Inject]
         public INewSkiLiftService newSkiLiftService { get; set; }
+
+        [Inject]
+        public LockPageEvent LockPageEvent { get; set; }
 
         [Parameter]
         public string FormId { get; set; }
@@ -27,7 +27,11 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
 
         public async Task HandleValidSubmit()
         {
+            LockPageEvent.LockPage();
+
             var guid = await newSkiLiftService.NewSkiLift(_newSkiLift);
+
+            LockPageEvent.UnlockPage();
 
             Console.WriteLine("Guid : " + guid);
         }

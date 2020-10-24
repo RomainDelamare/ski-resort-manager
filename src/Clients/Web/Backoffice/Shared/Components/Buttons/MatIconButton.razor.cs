@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SkiResortManager.Backoffice.Shared.Buttons
+namespace SkiResortManager.Backoffice.Shared.Components.Buttons
 {
     public partial class MatIconButton
     {

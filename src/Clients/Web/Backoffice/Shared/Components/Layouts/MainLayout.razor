@@ -3,7 +3,7 @@
 <div class="page">
     <div class="sidebar">
         <header class="mat-toolbar">
-            Ski Resort Manager
+            Ski Resort Manager @_pageLocked
         </header>
         <NavMenu />
     </div>
@@ -11,5 +11,5 @@
         <MainToolbar />
         @Body
     </div>
-    <SfSpinner Visible="true" CssClass="e-spin-overlay" />
+    <SfSpinner Visible="@_pageLocked" CssClass="e-spin-overlay" />
 </div>

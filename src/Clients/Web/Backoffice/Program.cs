@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services;
+using SkiResortManager.Backoffice.Shared.Events;
 using Syncfusion.Blazor;
 using System;
 using System.Net.Http;
@@ -34,6 +35,7 @@ namespace SkiResortManager.Backoffice
             services.AddSyncfusionBlazor();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(configuration["SyncfusionLicense"]);
 
+            services.AddSingleton<LockPageEvent>();
             services.AddScoped<INewSkiLiftService, NewSkiLiftService>();
         }
     }
