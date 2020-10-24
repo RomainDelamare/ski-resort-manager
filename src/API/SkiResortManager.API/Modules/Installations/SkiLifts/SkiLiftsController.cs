@@ -11,7 +11,7 @@ namespace SkiResortManager.API.Modules.Installations.SkiLifts
     public class SkiLiftsController : ControllerBase
     {
         [HttpPost(SkiLiftsRoutes.NewSkiLift)]
-        public async Task<IActionResult> NewSkiLift([FromBody] NewSkiLiftRequest request)
+        public async Task<IActionResult> NewSkiLift([FromBody] NewSkiLift request)
         {
             await Task.Run(() => { Thread.Sleep(2000); });
             var guid = Guid.NewGuid();

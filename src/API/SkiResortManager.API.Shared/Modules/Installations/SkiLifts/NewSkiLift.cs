@@ -2,7 +2,7 @@
 
 namespace SkiResortManager.API.Shared.Modules.Installations.SkiLifts
 {
-    public record NewSkiLiftRequest(
+    public record NewSkiLift(
         SkiLiftType SkiLiftType,
         string Code,
         string Name,

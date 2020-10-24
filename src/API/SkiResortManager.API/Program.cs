@@ -14,7 +14,9 @@ namespace SkiResortManager.API
             IConfiguration configuration = GetConfiguration();
             Log.Logger = CreateSerilogLogger(configuration);
 
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args)
+                .Build()
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)

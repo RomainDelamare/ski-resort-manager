@@ -1,34 +1,29 @@
-﻿using SkiResortManager.API.Shared.Modules.Installations.SkiLifts;
+﻿using MediatR;
+using SkiResortManager.API.Shared.Modules.Installations.SkiLifts;
 using SkiResortManager.API.Shared.Utils;
-using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services
+namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Requests
 {
-    public interface INewSkiLiftService
-    {
-        public Task<Guid> NewSkiLift(NewSkiLift newSkiLift);
-    }
-
-    public class NewSkiLiftService : INewSkiLiftService
+    public class NewSkiLiftRequestHandler : IRequestHandler<NewSkiLiftRequest, Guid>
     {
         private readonly HttpClient _httpClient;
 
-        public NewSkiLiftService(HttpClient httpClient)
+        public NewSkiLiftRequestHandler(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<Guid> NewSkiLift(NewSkiLift newSkiLift)
+        public async Task<Guid> Handle(NewSkiLiftRequest request, CancellationToken cancellationToken)
         {
+            var newSkiLift = request.NewSkiLift;
             var response = await _httpClient.PostAsJsonAsync(
                 RouteBuilder.Build(SkiLiftsRoutes.Base, SkiLiftsRoutes.NewSkiLift),
-                new NewSkiLiftRequest(
+                new NewSkiLift(
                     newSkiLift.SkiLiftType,
                     newSkiLift.Code,
                     newSkiLift.Name,

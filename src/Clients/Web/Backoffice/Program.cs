@@ -1,42 +1,65 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using MediatR;
+using MediatR.Extensions.Autofac.DependencyInjection;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services;
+using SkiResortManager.Backoffice.Modules.Installations;
+using SkiResortManager.Backoffice.Shared;
 using SkiResortManager.Backoffice.Shared.Events;
 using Syncfusion.Blazor;
 using System;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SkiResortManager.Backoffice
 {
     public class Program
     {
+        public static IConfigurationRoot Configuration { get; private set; }
+
         public static async Task Main(string[] args)
+        {
+            await CreateHostBuilder(args)
+                .Build()
+                .RunAsync();
+        }
+
+        public static WebAssemblyHostBuilder CreateHostBuilder(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            var configuration = builder.Configuration.Build();
+            Configuration = builder.Configuration;
+            ConfigureServices(builder.Services);
 
-            ConfigureServices(builder.Services, configuration);
+            builder.ConfigureContainer(new AutofacServiceProviderFactory(Register));
 
-            await builder.Build().RunAsync();
+            return builder;
         }
 
-        public static void ConfigureServices(IServiceCollection services, IConfigurationRoot configuration)
+        private static void Register(ContainerBuilder builder)
         {
-            var baseAddress = configuration.GetValue<string>("ApiBaseAddress");
-            services.AddScoped(sp => new HttpClient
-            {
-                BaseAddress = new Uri(baseAddress)
-            });
+            builder
+                .Register(ctx => new HttpClient()
+                {
+                    BaseAddress = new Uri(Configuration.GetValue<string>("ApiBaseAddress"))
+                })
+                .InstancePerLifetimeScope();
 
+            builder.RegisterMediatR(typeof(Program).GetTypeInfo().Assembly);
+
+            builder.RegisterModule<SharedModule>();
+            builder.RegisterModule<InstallationsModule>();
+        }
+
+        public static void ConfigureServices(IServiceCollection services)
+        {
             services.AddSyncfusionBlazor();
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(configuration["SyncfusionLicense"]);
-
-            services.AddSingleton<LockPageEvent>();
-            services.AddScoped<INewSkiLiftService, NewSkiLiftService>();
+            Syncfusion.Licensing.SyncfusionLicenseProvider
+                .RegisterLicense(Configuration.GetValue<string>("SyncfusionLicense"));
         }
     }
 }

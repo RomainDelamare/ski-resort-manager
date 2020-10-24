@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using MediatR;
+using Microsoft.AspNetCore.Components;
 using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Models;
-using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services;
+using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Requests;
 using SkiResortManager.Backoffice.Shared.Events;
 using SkiResortManager.Shared.Enums.Enums.Installations.SkiLifts;
 using SkiResortManager.Shared.Utils.Enums;
@@ -13,10 +14,10 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
     public partial class NewSkiLiftForm
     {
         [Inject]
-        public INewSkiLiftService newSkiLiftService { get; set; }
+        public LockPageEvent LockPageEvent { get; set; }
 
         [Inject]
-        public LockPageEvent LockPageEvent { get; set; }
+        public IMediator Mediator { get; set; }
 
         [Parameter]
         public string FormId { get; set; }
@@ -27,11 +28,10 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
 
         public async Task HandleValidSubmit()
         {
-            LockPageEvent.LockPage();
-
-            var guid = await newSkiLiftService.NewSkiLift(_newSkiLift);
-
-            LockPageEvent.UnlockPage();
+            var guid = await Mediator.Send(new NewSkiLiftRequest()
+            {
+                NewSkiLift = _newSkiLift
+            });
 
             Console.WriteLine("Guid : " + guid);
         }
