@@ -30,7 +30,14 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
         {
             var guid = await Mediator.Send(new NewSkiLiftRequest()
             {
-                NewSkiLift = _newSkiLift
+                SkiLiftType = _newSkiLift.SkiLiftType,
+                Code = _newSkiLift.Code,
+                Name = _newSkiLift.Name,
+                Length = _newSkiLift.Length,
+                Speed = _newSkiLift.Speed,
+                StartAltitude = _newSkiLift.StartAltitude,
+                EndAltitude = _newSkiLift.EndAltitude,
+                CapacityPerHour = _newSkiLift.CapacityPerHour,
             });
 
             Console.WriteLine("Guid : " + guid);

@@ -20,18 +20,17 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
 
         public async Task<Guid> Handle(NewSkiLiftRequest request, CancellationToken cancellationToken)
         {
-            var newSkiLift = request.NewSkiLift;
             var response = await _httpClient.PostAsJsonAsync(
                 RouteBuilder.Build(SkiLiftsRoutes.Base, SkiLiftsRoutes.NewSkiLift),
                 new NewSkiLift(
-                    newSkiLift.SkiLiftType,
-                    newSkiLift.Code,
-                    newSkiLift.Name,
-                    newSkiLift.Length,
-                    newSkiLift.Speed,
-                    newSkiLift.StartAltitude,
-                    newSkiLift.EndAltitude,
-                    newSkiLift.CapacityPerHour
+                    request.SkiLiftType,
+                    request.Code,
+                    request.Name,
+                    request.Length,
+                    request.Speed,
+                    request.StartAltitude,
+                    request.EndAltitude,
+                    request.CapacityPerHour
                 ));
 
             return response.Content.ReadFromJsonAsync<Guid>().Result;
