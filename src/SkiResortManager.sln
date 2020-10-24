@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		SolutionItems\docker-compose.yml = SolutionItems\docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkiResortManager.API.Shared.UnitTests", "API\SkiResortManager.API.Shared.UnitTests\SkiResortManager.API.Shared.UnitTests.csproj", "{5FEDF1FF-B9E5-4221-9657-25A6633D6139}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{6A3FDAB3-6982-41BB-B19F-E8C6CDFC9248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A3FDAB3-6982-41BB-B19F-E8C6CDFC9248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A3FDAB3-6982-41BB-B19F-E8C6CDFC9248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEDF1FF-B9E5-4221-9657-25A6633D6139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEDF1FF-B9E5-4221-9657-25A6633D6139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEDF1FF-B9E5-4221-9657-25A6633D6139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEDF1FF-B9E5-4221-9657-25A6633D6139}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{6878B611-A6C4-4372-A1D4-34B802BD0B2C} = {C0027730-B79F-4BBF-85E4-7AEC25B6069C}
 		{C3254A50-A184-4247-9322-15815E071C7A} = {79BB3579-86AD-4851-9DC8-E05B7D1D49ED}
 		{6A3FDAB3-6982-41BB-B19F-E8C6CDFC9248} = {C3254A50-A184-4247-9322-15815E071C7A}
+		{5FEDF1FF-B9E5-4221-9657-25A6633D6139} = {C3254A50-A184-4247-9322-15815E071C7A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8BED7DB4-A67C-405F-B634-9D17F10D9751}

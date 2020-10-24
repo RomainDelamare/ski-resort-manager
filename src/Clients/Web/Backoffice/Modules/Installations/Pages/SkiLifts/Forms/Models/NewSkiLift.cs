@@ -3,7 +3,7 @@ using SkiResortManager.Shared.Utils.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
+namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Models
 {
     public class NewSkiLift
     {

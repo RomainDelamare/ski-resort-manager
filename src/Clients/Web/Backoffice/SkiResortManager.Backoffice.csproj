@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Modules\Installations\Pages\SkiLifts\Forms\NewSkiLiftForm.razor.cs~RF15aee7.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-rc.2.20475.17" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-rc.2.20475.17" PrivateAssets="all" />
     <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.41" />

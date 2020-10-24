@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using SkiResortManager.API.Shared.Modules.Installations.SkiLifts;
+using SkiResortManager.API.Shared.Utils;
+using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Models;
+using SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms.Services;
 using SkiResortManager.Shared.Enums.Enums.Installations.SkiLifts;
 using SkiResortManager.Shared.Utils.Enums;
 using System;
@@ -13,7 +16,7 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
     public partial class NewSkiLiftForm
     {
         [Inject]
-        public HttpClient HttpClient { get; set; }
+        public INewSkiLiftService newSkiLiftService { get; set; }
 
         [Parameter]
         public string FormId { get; set; }
@@ -24,20 +27,9 @@ namespace SkiResortManager.Backoffice.Modules.Installations.Pages.SkiLifts.Forms
 
         public async Task HandleValidSubmit()
         {
-            var guid = await HttpClient.PostAsJsonAsync(
-                SkiLiftsRoutes.Base + "/" + SkiLiftsRoutes.NewSkiLift,
-                new NewSkiLiftRequest(
-                    _newSkiLift.SkiLiftType,
-                    _newSkiLift.Code,
-                    _newSkiLift.Name,
-                    _newSkiLift.Length,
-                    _newSkiLift.Speed,
-                    _newSkiLift.StartAltitude,
-                    _newSkiLift.EndAltitude,
-                    _newSkiLift.CapacityPerHour
-                ));
+            var guid = await newSkiLiftService.NewSkiLift(_newSkiLift);
 
-            Console.WriteLine("Guid : " + guid.Content.ReadFromJsonAsync<Guid>().Result);
+            Console.WriteLine("Guid : " + guid);
         }
     }
 }

@@ -46,5 +46,9 @@
   {
     "outputFile": "Shared/Toolbars/ActionToolbar.razor.css",
     "inputFile": "Shared/Toolbars/ActionToolbar.razor.scss"
+  },
+  {
+    "outputFile": "Shared/Loaders/LoaderWithLockedBackground.razor.css",
+    "inputFile": "Shared/Loaders/LoaderWithLockedBackground.razor.scss"
   }
 ]
